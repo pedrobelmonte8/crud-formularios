@@ -9,7 +9,9 @@ class FormController extends Controller
 {
     public function getForms()
     {
-        return Form::all();
+        $formularios = Form::all();
+
+        return response()->json($formularios);
     }
 
     public function getForm($id)
@@ -38,7 +40,7 @@ class FormController extends Controller
     }
 
 
-    public function eliminarFormulario($id)
+    public function deleteForm($id)
 {
     $formulario = Form::find($id);
 
