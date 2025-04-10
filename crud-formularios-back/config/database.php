@@ -112,18 +112,18 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
         'mongodb' => [
-        'driver'   => 'mongodb',
-        'host'     => env('DB_HOST', '127.0.0.1'),
-        'port'     => env('DB_PORT', 27017),
-        'database' => env('DB_DATABASE', 'your_database_name'),
-        'username' => env('DB_USERNAME', ''),
-        'password' => env('DB_PASSWORD', ''),
-        'options'  => [
-            'database' => env('DB_AUTH_DATABASE', 'admin'), // set the authentication database
-        ],
+            'driver'   => 'mongodb',
+            'host'     => env('DB_HOST', '127.0.0.1'),
+            'port'     => env('DB_PORT', 27017),
+            'database' => env('DB_DATABASE', 'forms_db'),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
+            'options'  => [
+                'database' => env('DB_AUTH_DATABASE', 'admin'), // set the authentication database
+            ],
 
+        ],
     ],
-],
 
     /*
     |--------------------------------------------------------------------------
@@ -158,7 +158,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
             'persistent' => env('REDIS_PERSISTENT', false),
         ],
 
