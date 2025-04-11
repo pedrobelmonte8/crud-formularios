@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <select class="border p-2" @change="handleSelectChange">
+    <div class="flex items-center justify-between mt-4">
+        <select class=" ml-0 border p-2" @change="handleSelectChange">
             <option class="text-black" v-for="form in forms" :key="form.id" :value="form.id">
                 {{ form.nombre }}
             </option>
         </select>
         <button @click="$emit('open-create-form')"
-            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ">
             Crear Formulario
         </button>
     </div>

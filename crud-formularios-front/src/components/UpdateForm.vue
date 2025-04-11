@@ -38,16 +38,16 @@
 
         <!-- Botón para añadir un nuevo campo -->
 
-        <div class="mt-4">
+        <div>
             <button @click="addField" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                 Añadir nuevo campo
             </button>
-
-            <button @click="updateForm" class="bg-blue-500 text-white px-4 py-2 rounded">
+        </div>
+        <div class="flex justify-between my-3"><button @click="updateForm" class="bg-blue-500 text-white px-4 py-2 rounded">
                 Guardar cambios
             </button>
 
-            <button @click="$emit('cancel')" class="bg-gray-500 text-white px-4 py-2 rounded ml-2">
+            <button @click="$emit('cancel')" class="bg-gray-500 text-white px-4 py-2 rounded ">
                 Cancelar
             </button>
         </div>

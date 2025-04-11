@@ -1,11 +1,11 @@
 <template>
     <form>
         <div v-for="field in form.campos" :key="field.id">
-            <label class="block text-sm/6 font-medium ">{{ field.label }}</label>
+            <label class="block text-sm/6 font-medium my-2">{{ field.label }}</label>
             <input :type="field.type" :name="field.name" v-model="data[field.name]" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
         </div>
-        <div class="buttons">
-            <button type="button" @click="deleteForm" class="bg-red-500 text-white px-4 py-2 mt-4 rounded">Eliminar formulario</button>
+        <div class="buttons justify-between">
+            <button type="button" @click="deleteForm" class="bg-red-500 text-white px-4 py-2 mt-4 rounded my-3 mr-2">Eliminar formulario</button>
             <button type="button" class="bg-yellow-500 text-white px-4 py-2 rounded mt-4"
             @click="$emit('edit-form')">Actualizar formulario</button>
         </div>
