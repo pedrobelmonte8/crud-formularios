@@ -23,6 +23,6 @@ const getFormById = async (id) => {
 <template>
     <label for="form-select" class="block mb-2">Selecciona un formulario:</label>
     <FormSelect :forms="forms" @formSelected="getFormById" />
-    <DynamicForm v-if="selectedForm" :form="selectedForm" />
+    <DynamicForm v-if="selectedForm" :form="selectedForm" @deleted="selectedForm=null" />
   </template>
   
