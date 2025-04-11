@@ -1,11 +1,8 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import FormsSelect from './components/FormsSelect.vue'
 </script>
 
 <template>
-  <FormsSelect />
-  
+  <RouterView />  
 </template>
 
 <style scoped>
