@@ -6,7 +6,8 @@
         </div>
         <div class="buttons">
             <button type="button" @click="deleteForm" class="bg-red-500 text-white px-4 py-2 mt-4 rounded">Eliminar formulario</button>
-            <button type="button">Actualizar formulario</button>
+            <button type="button" class="bg-yellow-500 text-white px-4 py-2 rounded mt-4"
+            @click="$emit('edit-form')">Actualizar formulario</button>
         </div>
 
 
@@ -21,7 +22,7 @@ import axios from 'axios'
 const props = defineProps({ form: Object }) //recibe el formulario seleccionado
 const data = reactive({})
 
-const emit = defineEmits(['deleted'])  // emitiremos esto cuando se borre correctamente
+const emit = defineEmits(['deleted, edit-form'])  // emitiremos esto cuando se borre correctamente
 
 const deleteForm = async () => {
   if (!confirm('¿Seguro que quieres eliminar este formulario?')) return
