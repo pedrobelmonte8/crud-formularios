@@ -17,6 +17,7 @@ const createForm = async () => {
     campos: fields.value
   })
   //Emite al padre
+  alert("El formulario ha sido creado con éxito");
   emit('form-created')
   emit('close')
 }
