@@ -41,7 +41,7 @@ const resetPage = () => {
 
 const handleCloseCreateForm = () => {
     showCreateForm.value = false
-    fetchForms() // Vuelve a pedir los formularios
+    resetPage();
 }
 
 
@@ -60,8 +60,9 @@ const showCreateForm = ref(false)
 
 <template>
     <label for="form-select" class="block mb-2">Selecciona un formulario:</label>
-    <FormsSelect :forms="forms" @formSelected="getFormById" @open-create-form="handleOpenCreateForm" />
-    <DynamicForm v-if="selectedForm && !showUpdateForm" :form="selectedForm" @deleted="handleFormDeleted" @edit-form="handleShowUpdateForm"/>
+    <FormsSelect :forms="forms" @form-selected="getFormById" @open-create-form="handleOpenCreateForm" />
+    <DynamicForm v-if="selectedForm && !showUpdateForm" :form="selectedForm" @deleted="handleFormDeleted"
+        @edit-form="handleShowUpdateForm" />
     <CreateForm v-if="showCreateForm && !selectedForm" :form="selectedForm" @close="handleCloseCreateForm" />
     <UpdateForm v-if="showUpdateForm" :form="selectedForm" @form-updated="handleFormUpdated"
         @cancel="showUpdateForm = false"></UpdateForm>
