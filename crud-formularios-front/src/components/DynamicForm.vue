@@ -6,7 +6,7 @@
         </div>
         <div class="buttons">
             <button type="button" @click="deleteForm" class="bg-red-500 text-white px-4 py-2 mt-4 rounded">Eliminar formulario</button>
-            <button type="button">Actualizar</button>
+            <button type="button">Actualizar formulario</button>
         </div>
 
 
