@@ -1,3 +1,59 @@
+<template>
+    <div>
+        <h2 class="text-xl font-bold mb-4">Actualizar Campos</h2>
+        <label class="block text-gray-700 font-semibold mb-1">
+            Nombre del formulario
+        </label>
+        <input required v-model="props.form.nombre" type="text" class="w-full border rounded px-3 py-2 mb-2" />
+        <div v-for="(field, index) in updatedFields" :key="index" class="mb-4">
+
+            <label class="block text-gray-700 font-semibold mb-1">
+                Label
+            </label>
+            <input required v-model="updatedFields[index].label" type="text"
+                class="w-full border rounded px-3 py-2 mb-2" />
+
+            <label class="block text-gray-700 font-semibold mb-1">
+                Name
+            </label>
+            <input required v-model="updatedFields[index].name" type="text"
+                class="w-full border rounded px-3 py-2 mb-2" />
+
+            <label class="block text-gray-700 font-semibold mb-1">
+                Type
+            </label>
+            <select required v-model="updatedFields[index].type" class="w-full border rounded px-3 py-2 mb-2">
+                <option value="text">Text</option>
+                <option value="email">Email</option>
+                <option value="number">Number</option>
+                <option value="password">Password</option>
+                <!-- Puedes agregar más tipos según tus necesidades -->
+            </select>
+            <!-- Botón eliminar campo -->
+            <button @click="removeField(index)" type="button"
+                class="bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600 mt-2">
+                Eliminar campo
+            </button>
+        </div>
+
+        <!-- Botón para añadir un nuevo campo -->
+
+        <div class="mt-4">
+            <button @click="addField" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Añadir nuevo campo
+            </button>
+
+            <button @click="updateForm" class="bg-blue-500 text-white px-4 py-2 rounded">
+                Guardar cambios
+            </button>
+
+            <button @click="$emit('cancel')" class="bg-gray-500 text-white px-4 py-2 rounded ml-2">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</template>
+
 <script setup>
 import { ref, watch } from 'vue'
 import axios from 'axios'
@@ -44,65 +100,6 @@ const addField = () => {
 }
 
 const removeField = (index) => {
-  updatedFields.value.splice(index, 1)
+    updatedFields.value.splice(index, 1)
 }
 </script>
-
-<template>
-    <div>
-        <h2 class="text-xl font-bold mb-4">Actualizar Campos</h2>
-        <label class="block text-gray-700 font-semibold mb-1">
-            Nombre del formulario
-        </label>
-        <input required v-model="props.form.nombre" type="text" class="w-full border rounded px-3 py-2 mb-2" />
-        <div v-for="(field, index) in updatedFields" :key="index" class="mb-4">
-
-            <label class="block text-gray-700 font-semibold mb-1">
-                Label
-            </label>
-            <input required v-model="updatedFields[index].label" type="text"
-                class="w-full border rounded px-3 py-2 mb-2" />
-
-            <label class="block text-gray-700 font-semibold mb-1">
-                Name
-            </label>
-            <input required v-model="updatedFields[index].name" type="text"
-                class="w-full border rounded px-3 py-2 mb-2" />
-
-            <label class="block text-gray-700 font-semibold mb-1">
-                Type
-            </label>
-            <select required v-model="updatedFields[index].type" class="w-full border rounded px-3 py-2 mb-2">
-                <option value="text">Text</option>
-                <option value="email">Email</option>
-                <option value="number">Number</option>
-                <option value="password">Password</option>
-                <!-- Puedes agregar más tipos según tus necesidades -->
-            </select>
-            <!-- Botón eliminar campo -->
-  <button
-    @click="removeField(index)"
-    type="button"
-    class="bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600 mt-2"
-  >
-    Eliminar campo
-  </button>
-        </div>
-
-        <!-- Botón para añadir un nuevo campo -->
-
-        <div class="mt-4">
-            <button @click="addField" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                Añadir nuevo campo
-            </button>
-
-            <button @click="updateForm" class="bg-blue-500 text-white px-4 py-2 rounded">
-                Guardar cambios
-            </button>
-
-            <button @click="$emit('cancel')" class="bg-gray-500 text-white px-4 py-2 rounded ml-2">
-                Cancelar
-            </button>
-        </div>
-    </div>
-</template>
