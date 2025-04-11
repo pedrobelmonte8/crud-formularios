@@ -7,7 +7,7 @@
         <div v-for="(field, index) in fields" :key="index" class="mb-2">
             <input v-model="field.label" placeholder="Label" class="border p-1 mr-2" />
             <input v-model="field.name" placeholder="Name" class="border p-1 mr-2" />
-            <select v-model="field.type" class="border p-1">
+            <select v-model="field.type" class="border p-1 text-gray-400 ">
                 <option value="text">Texto</option>
                 <option value="number">Número</option>
                 <option value="email">Email</option>
