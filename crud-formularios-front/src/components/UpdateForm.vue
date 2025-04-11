@@ -85,7 +85,7 @@ const updateForm = async () => {
         nombre: props.form.nombre,
         campos: updatedFields.value
     })
-
+    alert("El formulario ha sido actualizado con éxito")
     emit('form-updated')
 }
 // Función para añadir un nuevo campo
