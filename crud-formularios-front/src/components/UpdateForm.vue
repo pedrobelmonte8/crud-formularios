@@ -32,6 +32,20 @@ const updateForm = async () => {
 
     emit('form-updated')
 }
+// Función para añadir un nuevo campo
+const addField = () => {
+    const newField = {
+        label: `Nuevo campo ${updatedFields.value.length + 1}`,  // Etiqueta del nuevo campo
+        name: `campo${updatedFields.value.length + 1}`,  // Nombre dinámico del campo
+        type: 'text',  // Tipo por defecto
+        valor: '',  // Valor inicial vacío
+    }
+    updatedFields.value.push(newField)
+}
+
+const removeField = (index) => {
+  updatedFields.value.splice(index, 1)
+}
 </script>
 
 <template>
@@ -42,6 +56,7 @@ const updateForm = async () => {
         </label>
         <input required v-model="props.form.nombre" type="text" class="w-full border rounded px-3 py-2 mb-2" />
         <div v-for="(field, index) in updatedFields" :key="index" class="mb-4">
+
             <label class="block text-gray-700 font-semibold mb-1">
                 Label
             </label>
@@ -64,11 +79,23 @@ const updateForm = async () => {
                 <option value="password">Password</option>
                 <!-- Puedes agregar más tipos según tus necesidades -->
             </select>
+            <!-- Botón eliminar campo -->
+  <button
+    @click="removeField(index)"
+    type="button"
+    class="bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600 mt-2"
+  >
+    Eliminar campo
+  </button>
         </div>
 
         <!-- Botón para añadir un nuevo campo -->
 
         <div class="mt-4">
+            <button @click="addField" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Añadir nuevo campo
+            </button>
+
             <button @click="updateForm" class="bg-blue-500 text-white px-4 py-2 rounded">
                 Guardar cambios
             </button>
